@@ -50,7 +50,7 @@ example:
 <script src=leaflet.js></script>
 <script src=tilebased_elevation.js></script>
 <script>
-  var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=pk.eyJ1Ijoic2lndXJka24iLCJhIjoiY2lzYzBlbmhvMDAxcDJ5bWthMzV1YzljNSJ9.oJmwqXsUxgVLZv6ucSn5CQ");
+  var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=YOUR_API_KEY");
   // Get a single elevation, and print it to the console
   api.get([29.8,83.6]).then(el => console.log(el));
   // Get elevations for a line of 10,000 points in India/Nepal/China starting from lat = 25° and ending at lat = 30°
