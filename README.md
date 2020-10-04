@@ -46,7 +46,7 @@ object using the tilebasedElevation constructor, providing the tile path and api
 and then use the `.get()` function to query it asynchronously. Here's a stand-alone usage
 example:
 
-```javascript
+```html
 <script src=leaflet.js></script>
 <script src=tilebased_elevation.js></script>
 <script>
