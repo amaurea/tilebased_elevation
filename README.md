@@ -1,6 +1,6 @@
 # tilebased\_elevation.js
 tilebased\_elevation.js is a javascript wrapper that provides simple and efficient read-out
-of elevation values at arbitrarily defined points for services like Mapbox that only
+of elevation values at arbitrarily defined points for services like Mapbox that don't
 provide an elevation API for accessing data in the form of raster tiles.
 
 ## Motivation
@@ -32,11 +32,11 @@ what that looks like in comparison:
     * Free
     * Max 50,000 page sessions per month
     * Unlimited elevation tiles per session
-    * 5 m resolution (configurable - default is 40 m)
+    * 5 m resolution
     * Hard to use
 
 Aside from the hard to use part, it looked much better than the stanard options.
-So all I needed was a wrapper that would mek this API just as easy to use as the others.
+So all I needed was a wrapper that would make this API just as easy to use as the others.
 tilebased\_elevation.js is an attempt at this.
 
 ## Usage
