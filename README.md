@@ -46,18 +46,19 @@ object using the tilebasedElevation constructor, providing the tile path and api
 and then use the `.get()` function to query it asynchronously. Here's a stand-alone usage
 example:
 
-	<script src=leaflet.js></script>
-	<script src=tilebased_elevation.js></script>
-	<script>
-		var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=[YOUR_MAPBOX_API_KEY]");
-		// Get a single elevation, and print it to the console
-		api.get([29.8,83.6]).then(el => console.log(el));
-		// Get lots of points at the same time
-		var points = [];
-		for(var i = 0; i < 100000; i++)
-			points.push([18.0+i*4e-4,83.6])
-		api.get(points).then(els => console.log(els);
-		// Or you can use it with await if you're in an async function
-		// els = await api.get(points);
-	</script>
-
+```javascript
+<script src=leaflet.js></script>
+<script src=tilebased_elevation.js></script>
+<script>
+	var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=[YOUR_MAPBOX_API_KEY]");
+	// Get a single elevation, and print it to the console
+	api.get([29.8,83.6]).then(el => console.log(el));
+	// Get lots of points at the same time
+	var points = [];
+	for(var i = 0; i < 100000; i++)
+		points.push([18.0+i*4e-4,83.6])
+	api.get(points).then(els => console.log(els);
+	// Or you can use it with await if you're in an async function
+	// els = await api.get(points);
+</script>
+```
