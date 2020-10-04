@@ -50,17 +50,17 @@ example:
 <script src=leaflet.js></script>
 <script src=tilebased_elevation.js></script>
 <script>
-	var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=[YOUR_MAPBOX_API_KEY]");
-	// Get a single elevation, and print it to the console
-	api.get([29.8,83.6]).then(el => console.log(el));
-	// Get elevations for a line of 100,000 points in India/Himalaya/China/Russia starting from lat = 18° and ending at
-	// lat = 59°
-	var points = [];
-	for(var i = 0; i < 100000; i++)
-		points.push([18.0+i*4e-4,83.6])
-	api.get(points).then(els => console.log(els);
-	// Or you can use it with await if you're in an async function
-	// els = await api.get(points);
+  var api = tilebasedElevation("https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=[YOUR_MAPBOX_API_KEY]");
+  // Get a single elevation, and print it to the console
+  api.get([29.8,83.6]).then(el => console.log(el));
+  // Get elevations for a line of 100,000 points in India/Himalaya/China/Russia starting from lat = 18° and ending at
+  // lat = 59°
+  var points = [];
+  for(var i = 0; i < 100000; i++)
+    points.push([18.0+i*4e-4,83.6])
+  api.get(points).then(els => console.log(els);
+  // Or you can use it with await if you're in an async function
+  // els = await api.get(points);
 </script>
 ```
 
@@ -68,7 +68,7 @@ The full syntax for the constructor is `tilebasedElevation(url, opts)`, where op
 with the following options:
 
 * zoom: The resolution of the elevation tiles queried. Defaults to 12, corresponding to a resolution of 40 m at the equator. The maximum meaningful value is 15, which results in 5 m resolution. Higher values typically mean that more tiles need to be loaded when you ask for points covering a wide area, so there is a resolution/speed tradeoff.
-* cacheSize: The number of tiles to cache tiles internally. Defaults to 100. Uses tileSize\*tileSize\*4 = 0.25 MB of memory per tile.
+* cacheSize: The number of tiles to cache tiles internally. Defaults to 100. Uses tileSize\*tileSize\*4 = 0.25 MB of memory per tile for the standard tile size of 256 pixels.
 * decoder: The function used to decode the raw RGB data in the images to elevation values. Defaults to `function(R,G,B,A) { return -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1); }`, which is appropriate for MapBox elevation data.
 * crs: The projection used for the tiles. Defaults to L.CRS.EPSG3857 (Web-Mercator). You probably won't need to change this.
 * tileSize: The size of each tile, in pixels. Defaults to 256, which is the standard for Web-Mercator maps.
